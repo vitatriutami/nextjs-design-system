@@ -1,5 +1,6 @@
 import React from "react";
 import { tv, type VariantProps } from "tailwind-variants";
+import { twMerge } from "tailwind-merge";
 
 const style = tv({
   base: "bg-slate-50 text-slate-800 font-medium tracking-tight rounded-lg px-4 py-2",
@@ -41,7 +42,10 @@ export const Button = (props: Props) => {
   // spreading props -> style akan cari key yang sesuai di interface Props, selebihnya di-ignore
   // agar onClick melakukan trigger: spread props
   return (
-    <button {...props} className={style({ ...props })}>
+    <button
+      {...props}
+      className={twMerge(style({ ...props }), props.className)} // to override previous classes
+    >
       {props.children}
     </button>
   );
