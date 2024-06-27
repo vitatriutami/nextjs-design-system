@@ -44,7 +44,7 @@ export const Button = (props: Props) => {
   return (
     <button
       {...props}
-      className={twMerge(style({ ...props }), props.className)} // to override previous classes
+      className={twMerge(style({ ...props }), props.className)} // twMerge = to override previous classes
     >
       {props.children}
     </button>
